@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.minitwitter.R
+import com.example.minitwitter.common.Constants
+import com.example.minitwitter.common.SharedPreferencesManager
 import com.example.minitwitter.models.request.RequestLogin
 import com.example.minitwitter.models.response.ResponseAuth
 import com.example.minitwitter.services.ApiClient
@@ -79,6 +81,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     override fun onResponse(call: Call<ResponseAuth>, response: Response<ResponseAuth>) {
                         if (response.isSuccessful) {
                             Toast.makeText(this@MainActivity, "Session init successfully", Toast.LENGTH_SHORT).show()
+
+                            response.body()?.token?.let { SharedPreferencesManager.setSomeStringValue(Constants.PREF_AUTH_TOKEN, it) }
+                            response.body()?.username?.let { SharedPreferencesManager.setSomeStringValue(Constants.PREF_USERNAME, it) }
+                            response.body()?.email?.let { SharedPreferencesManager.setSomeStringValue(Constants.PREF_EMAIL, it) }
+                            response.body()?.photoUrl?.let { SharedPreferencesManager.setSomeStringValue(Constants.PREF_PHOTO_URL, it) }
+                            response.body()?.created?.let { SharedPreferencesManager.setSomeStringValue(Constants.PREF_CREATED, it) }
+                            response.body()?.active?.let { SharedPreferencesManager.setSomeBooleanValue(Constants.PREF_ACTIVE, it) }
+
                             val i = Intent(this@MainActivity, HomeActivity::class.java)
                             startActivity(i)
                             finish()
