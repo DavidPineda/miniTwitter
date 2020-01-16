@@ -12,4 +12,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="toolbar_title_home">Start</string>
 </resources>

@@ -40,6 +40,8 @@ dependencies {
     implementation 'android.arch.persistence.room:runtime:1.0.0'
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
+    implementation 'com.android.support:appcompat-v7:29.+'
+    implementation 'com.android.support:design:29.+'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
