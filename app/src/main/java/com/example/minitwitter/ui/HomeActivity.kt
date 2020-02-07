@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.minitwitter.R
+import com.example.minitwitter.TweetListFragment
 
 class HomeActivity : AppCompatActivity() {
 
@@ -25,5 +26,7 @@ class HomeActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_home, R.id.navigation_twits_like, R.id.navigation_profile))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, TweetListFragment()).commit()
     }
 }
